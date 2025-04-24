@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Чек</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Удаляем Poppins -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" /> -->
+  <style>
+    /* Плавные анимации с увеличенной длительностью */
+    .receipt {
+      transition: all 1.8s ease-in-out; /* 0.3s + 1.5s */
+    }
+    .receipt .close-icon {
+      transition: transform 1.7s ease-in-out; /* 0.2s + 1.5s */
+    }
+    .success-icon img {
+      transition: transform 1.8s ease-in-out; /* 0.3s + 1.5s */
+    }
+    input {
+      transition: all 1.8s ease-in-out; /* Добавляем анимацию для инпутов */
+    }
+    input:focus {
+      border-color: #007BFF; /* Пример изменения стиля при фокусе */
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+    button#submit {
+      transition: all 1.8s ease-in-out; /* Добавляем анимацию для кнопки */
+    }
+    button#submit:hover {
+      background-color: #007BFF; /* Пример изменения стиля при наведении */
+      color: #fff;
+    }
+    input::placeholder {
+      transition: opacity 1.8s ease-in-out; /* Плавный эффект для плейсхолдера */
+    }
+    input:focus::placeholder {
+      opacity: 0.5; /* Плейсхолдер становится полупрозрачным при фокусе */
+    }
+  </style>
+</head>
+<body style="background: url('backgroud.jpg') no-repeat center center fixed; background-size:392px 104vh;" >
+
+  <!-- Форма ввода -->
+  <div class="input-form">
+      <input id="name" type="text" placeholder="Имя" />
+      <input id="number" type="text" placeholder="Номер" />
+      <input id="price" type="number" placeholder="Цена" />
+      <button id="submit">Создать</button>
+  </div>
+
+  <!-- Блок чека -->
+  <div class="receipt" style="position: relative;">
+      <div class="header">
+          <div class="bank-logo">
+              <img src="Изображение WhatsApp 2025-03-14 в 18.28.34_778846da.jpg" alt="Mbank Logo" />
+          </div>
+          <!-- Опускаем символ ╳ немного ниже -->
+          <div class="close-icon" style="position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 17px; font-weight: 50;" onclick="document.querySelector('.receipt').style.display='none';">
+              ╳
+          </div>
+      </div>
+
+      <div class="success-icon" style="width: 40px; height: 40px;">
+          <img src="Изображение WhatsApp 2025-03-13 в 18.28.38_1d8a9fab.jpg" alt="Success Icon" style="width: 100%; height: 100%;" />
+      </div>
+      <div class="success-text" style="font-weight: bold;">
+          Транзакция успешно проведена
+      </div>
+      
+      <div class="amount">- 100,00 С</div>
+      <div class="desc">
+          Перевод по номеру телефона QR
+      </div>
+      
+      <div class="details">
+          <p id="recipient-name"><strong>Имя получателя:</strong> Калбы А.</p>
+          <p><strong>Оплачено со счета:</strong> 1033820209686242</p>
+          <p id="transaction-date"><strong>Дата операции:</strong> 10.02.2025, 09:44</p>
+          <p><strong>Номер квитанции:</strong> P021303501656</p>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="transfer-info">
+          Перевод по номеру телефона qr. 996705763800 /Калбы А. / / Сумма 100.00 KGS
+      </div>
+  </div>
+
+  <div class="actions">
+    <div class="action">
+        <img src="ыв.jpg" alt="Отправить"/>
+        <p>Отправить</p>
+    </div>
+    <div class="action">
+        <img src="изп.jpg" alt="Повторить платеж"/>
+        <p>Повторить<br>
+             платеж</p>
+    </div>
+    <div class="action">
+        <img src="изр.jpg" alt="Создать Шаблон"/>
+        <p>Создать<br>
+             Шаблон</p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
